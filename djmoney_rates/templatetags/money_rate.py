@@ -2,7 +2,7 @@
 from decimal import Decimal
 from django import template
 from djmoney_rates.utils import convert_money
-from utils.money import MoneyPatched
+from djmoney.models.fields import MoneyPatched
 
 register = template.Library()
 
