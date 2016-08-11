@@ -79,9 +79,6 @@ class OpenExchangeBackend(BaseRateBackend):
         base_url = "%s?app_id=%s" % (money_rates_settings.OPENEXCHANGE_URL,
                                      money_rates_settings.OPENEXCHANGE_APP_ID)
 
-        # Change the base currency whether it is specified in settings
-        base_url += "&base=%s" % self.get_base_currency()
-
         self.url = base_url
 
     def get_rates(self):
