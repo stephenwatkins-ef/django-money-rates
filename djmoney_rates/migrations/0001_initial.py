@@ -30,7 +30,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='rate',
             name='source',
-            field=models.ForeignKey(to='djmoney_rates.RateSource'),
+            field=models.ForeignKey(to='djmoney_rates.RateSource', on_delete=models.CASCADE),
         ),
         migrations.AlterUniqueTogether(
             name='rate',
