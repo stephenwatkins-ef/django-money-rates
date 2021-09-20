@@ -2,7 +2,7 @@
 from decimal import Decimal
 from django import template
 from djmoney_rates.utils import convert_money
-from djmoney.models.fields import MoneyPatched
+from djmoney.models.fields import Money
 
 register = template.Library()
 
@@ -27,7 +27,7 @@ class ChangeCurrencyNode(template.Node):
                 self.price_currency.resolve(context),
                 self.currency.resolve(context)
             )
-            patched_money = MoneyPatched._patch_to_current_class(money)
+            patched_money = Money._patch_to_current_class(money)
             if self.decimal:
                 patched_money.decimal_places = self.decimal.resolve(context)
             return patched_money
