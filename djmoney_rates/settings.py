@@ -17,7 +17,7 @@ back to the defaults.
 
 from django.conf import settings
 from importlib import import_module
-from django.utils import six
+import six
 
 
 USER_SETTINGS = getattr(settings, 'DJANGO_MONEY_RATES', None)
