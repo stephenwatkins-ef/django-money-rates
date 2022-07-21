@@ -4,7 +4,6 @@ import logging
 import json
 
 from django.core.exceptions import ImproperlyConfigured
-from django.utils import six
 
 from .compat import urlopen
 from .exceptions import RateBackendError
@@ -53,7 +52,7 @@ class BaseRateBackend(object):
         source.base_currency = self.get_base_currency()
         source.save()
 
-        for currency, value in six.iteritems(self.get_rates()):
+        for currency, value in self.get_rates():
             try:
                 rate = Rate.objects.get(source=source, currency=currency)
             except Rate.DoesNotExist:
